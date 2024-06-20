@@ -1,4 +1,4 @@
-# Lab 4 Project Documentation
+# Project Documentation
 
 ## Project Overview
 
