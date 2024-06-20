@@ -1,54 +1,38 @@
-#Problem Statement
-main function: The main() function will declare a single vector, vector<Person *> AllPersons to store
-the information about all the entities read from the input file.
-<br>
-The input file will have only three entities: RegFaculty, VisFaculty, Student. The encoding scheme
-is based on the sadhar identifiers, as follows:
-<br>
-RegFaculty: 1000 - 1999; persontype: rfa
-VisFaculty: 2000 - 2999; persontype: vfa
-Student: 3000 - 9999, persontype: cst
-Input: The inputs are:
-• The first set of lines contains information for each entity (RegFaculty, VisFaculty or Student)
-terminated by a line containing -1.
-<br>
-For RegFaculty, the format is (0 ≤ N ≤ 100 and 0 ≤ A ≤ 100):
-<br>
-id name N uint1 uint2 ... uintN J C A uint1 uint2 ... uintA
-This corresponds to sadhar, name, the N course numbers taught by the faculty number, the
-number of journals and conferences, the number of advisees (A), and advisees’ identifiers respectively.
-<br>
-Assume that the RegFaculty sadhars are unique. There is no need to check if an identifier already
-exists.
-<br>
-For VisFaculty, the format is (0 ≤ N ≤ 100):
-<br>
-id name N uint1 uint2 ... uintN J C hid
-<br>
-This corresponds to sadhar, name, the N course numbers taught by the faculty number, the
-number of journals and conferences, and the host identifier, respectively.
-<br>
-For Student, the format is (0 ≤ C ≤ 100):
-<br>
+Project Overview
+This project manages student records, including their course details and faculty advisors, and processes a series of queries to retrieve specific information. The data is stored in a vector and includes various functionalities like retrieving host faculty details, finding the student with the highest CGPA, and checking if a student is an advisee of a specific faculty.
+
+Input File Format
+The input file consists of multiple entries where each entry represents a student's record. The format of each entry is as follows:
+
+bash
+Copy code
 id name C uint1 gp1 uint2 gp2 ... uintC gpC fid
-<br>
-This corresponds to the sadhar, name, C course numbers and grades for courses taken by the
-student, and the id of the faculty advisor.
-<br>
-Assume that the Student sadhars are unique. There is no need to check if an identifier already
-exists.
-<br>
-The entries are stored in the vector in the order of appearance in the input file.
-<br>
-• The next set of lines contain a series of queries, one per line:
-– H vid: Prints the sadhar and name of the relevant host RegFaculty, as follows:
+id: The unique identifier (sadhar) for the student.
+name: The name of the student.
+C: The number of courses taken by the student.
+uint1, uint2, ..., uintC: The course numbers.
+gp1, gp2, ..., gpC: The grades corresponding to the courses.
+fid: The id of the faculty advisor.
+Query Format
+The program processes the following types of queries, each on a new line:
+
+H vid: Prints the sadhar and name of the relevant host RegFaculty.
+
+Copy code
 hid name
-Invalid vid values or vids where there is no matching hid in the stored entries, are ignored
-and no output is generated.
-– J: Prints the sadhar of the student with the highest CGPA; if multiple students have the same
-highest CGPA, then the sadhar of the first student stored in the vector is printed.
-– U sid: Prints 1 if this sid is stored in the advisees list of the fid that is stored in the Student’s
-record; and 0, otherwise.
-If there is no fid entry in the database for the given sid, then 0 is printed.
+If the vid is invalid or does not match any hid in the stored entries, no output is generated.
+
+J: Prints the sadhar of the student with the highest CGPA. If multiple students have the same highest CGPA, the sadhar of the first student stored in the vector is printed.
+
+U sid: Prints 1 if the given sid is stored in the advisees list of the faculty fid that is stored in the student's record; otherwise, prints 0.
+
+If there is no fid entry in the database for the given sid, 0 is printed.
 Invalid sid values are ignored and no output is generated.
-– X: Exit the program
+X: Exits the program.
+
+Assumptions
+Student sadhars are unique.
+No need to check if an identifier already exists in the system.
+The entries are stored in the vector in the order they appear in the input file.
+Usage
+To use this program, compile the code and run the executable with the input file containing student records followed by the queries. Ensure the input file is formatted correctly as described above.
