@@ -1,31 +1,45 @@
-#
+#Problem Statement
 main function: The main() function will declare a single vector, vector<Person *> AllPersons to store
 the information about all the entities read from the input file.
+<br>
 The input file will have only three entities: RegFaculty, VisFaculty, Student. The encoding scheme
 is based on the sadhar identifiers, as follows:
+<br>
 RegFaculty: 1000 - 1999; persontype: rfa
 VisFaculty: 2000 - 2999; persontype: vfa
 Student: 3000 - 9999, persontype: cst
 Input: The inputs are:
 • The first set of lines contains information for each entity (RegFaculty, VisFaculty or Student)
 terminated by a line containing -1.
+<br>
 For RegFaculty, the format is (0 ≤ N ≤ 100 and 0 ≤ A ≤ 100):
+<br>
 id name N uint1 uint2 ... uintN J C A uint1 uint2 ... uintA
 This corresponds to sadhar, name, the N course numbers taught by the faculty number, the
 number of journals and conferences, the number of advisees (A), and advisees’ identifiers respectively.
+<br>
 Assume that the RegFaculty sadhars are unique. There is no need to check if an identifier already
 exists.
+<br>
 For VisFaculty, the format is (0 ≤ N ≤ 100):
+<br>
 id name N uint1 uint2 ... uintN J C hid
+<br>
 This corresponds to sadhar, name, the N course numbers taught by the faculty number, the
 number of journals and conferences, and the host identifier, respectively.
+<br>
 For Student, the format is (0 ≤ C ≤ 100):
+<br>
 id name C uint1 gp1 uint2 gp2 ... uintC gpC fid
+<br>
 This corresponds to the sadhar, name, C course numbers and grades for courses taken by the
 student, and the id of the faculty advisor.
+<br>
 Assume that the Student sadhars are unique. There is no need to check if an identifier already
 exists.
+<br>
 The entries are stored in the vector in the order of appearance in the input file.
+<br>
 • The next set of lines contain a series of queries, one per line:
 – H vid: Prints the sadhar and name of the relevant host RegFaculty, as follows:
 hid name
