@@ -6,12 +6,10 @@
     <title>Project Documentation</title>
 </head>
 <body>
-    <h1>Project Overview</h1>
+    Project Overview
     <p>This project manages student records, including their course details and faculty advisors, and processes a series of queries to retrieve specific information. The data is stored in a vector and includes various functionalities like retrieving host faculty details, finding the student with the highest CGPA, and checking if a student is an advisee of a specific faculty.</p>
     
-    <h2>Input File Format</h2>
-    <p>The input file consists of multiple entries where each entry represents a student's record. The format of each entry is as follows:</p>
-    <pre>
+    
 id name C uint1 gp1 uint2 gp2 ... uintC gpC fid
     </pre>
     <ul>
